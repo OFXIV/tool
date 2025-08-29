@@ -43,7 +43,7 @@ export default defineConfig({
       }
     ],
     nav: [
-      { text: '工具', link: '/tools/uuid/' },
+      { text: '工具', link: '/tools/uuid' },
       { text: `拼好具 ${devDependencies.vitepress.replace('^', '')}`, link: '/', noIcon: true },
     ],
     sidebar: {
@@ -51,8 +51,8 @@ export default defineConfig({
         {
           text: '生成器',
           items: [
-            { text: 'UUID随机生成器', link: '/tools/uuid/' },
-            { text: '随机密码生成器', link: '/tools/randomkey/' }
+            { text: 'UUID随机生成器', link: '/tools/uuid' },
+            { text: '随机密码生成器', link: '/tools/randomkey' }
           ]
         }
       ]
