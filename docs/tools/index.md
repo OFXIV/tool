@@ -1,4 +1,10 @@
----
-title: 描述
----
-# 工具
+<script setup>
+import { onMounted } from 'vue'
+import { useRouter } from 'vitepress'
+
+const router = useRouter()
+
+onMounted(() => {
+  router.go('/tools/uuid')
+})
+</script>

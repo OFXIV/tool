@@ -13,6 +13,11 @@ export default defineConfig({
   title: '拼好具',
   description: '拼合收集各种工具网站',
   themeConfig: {
+    //编辑本页
+    editLink: { 
+      pattern: 'https://github.com/OFXIV/tool/edit/main/docs/:path', // 改成自己的仓库
+      text: '在GitHub编辑本页'
+    },
     //自定义上下页名
     docFooter: {
       prev: '上一页',
@@ -26,7 +31,7 @@ export default defineConfig({
     },
     logo: '/logo.png',
     lastUpdated: {
-      text: '最后更新于:',
+      text: '最后更新于',
       formatOptions: {
         dateStyle: 'full',
         timeStyle: 'medium'
@@ -43,7 +48,7 @@ export default defineConfig({
       }
     ],
     nav: [
-      { text: '工具', link: '/tools/uuid' },
+      { text: '工具', link: '/tools' },
       { text: `拼好具 ${devDependencies.vitepress.replace('^', '')}`, link: '/', noIcon: true },
     ],
     sidebar: {
