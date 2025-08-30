@@ -42,6 +42,7 @@ generateQRCode()
 </script>
 
 # 随机二维码生成器
+<ArticleMetadata />
 > 生成随机样式的二维码 点击图片可下载 `png`格式<br>
 > <input v-model="text" type="text" placeholder="输入内容生成二维码" @input="generateQRCode" />
 
