@@ -1,4 +1,6 @@
 /* var.css */
+
+
 :root {
   --vp-c-brand-1: #18794e;
   --vp-c-brand-2: #299764;
@@ -6,31 +8,62 @@
 }
 
 .dark {
-  --vp-c-brand-1: #3dd68c;
-  --vp-c-brand-2: #30a46c;
-  --vp-c-brand-3: #298459;
+  --vp-c-brand-1: #ff7ec7;
+  --vp-c-brand-2: #ff7ec7c6;
+  --vp-c-brand-3: #ff7ec763;
 }
-/* 以前的vp-c-brand已弃用 */
 
+/* -------------------------------
+   按钮色彩
+---------------------------------*/
 :root {
-  /* hero标题渐变色 */
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
+  /* 浅色模式按钮 */
+  --vp-button-brand-border: #299764;      /* 边框柔和青蓝 */
+  --vp-button-brand-text: #ffffff;        /* 文字柔和白 */
+  --vp-button-brand-bg: #18794e;          /* 主背景柔和青蓝 */
 
-  /*hero logo背景渐变色 */
-  --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
-  --vp-home-hero-image-filter: blur(40px);
+  --vp-button-brand-hover-border: #30a46c; /* hover 边框更深 */
+  --vp-button-brand-hover-text: #322a2a;
+  --vp-button-brand-hover-bg: #299764;     /* hover 背景柔和青蓝 */
+
+  --vp-button-brand-active-border: #30a46c; 
+  --vp-button-brand-active-text: #312828;
+  --vp-button-brand-active-bg: #30a46c;    /* 按下效果更深青蓝 */
 }
 
-/* 也可自行单独修改brand按钮 */
-/* :root {
-  --vp-button-brand-border: #F6CEEC;
-  --vp-button-brand-text: #F6CEEC;
-  --vp-button-brand-bg: #D939CD;
+.dark {
+  /* 深色模式按钮，深灰 + 柔和青蓝 */
+  --vp-button-brand-border: #ff7ec7c6;       /* 边框柔和灰 */
+  --vp-button-brand-text: #ffffff;         /* 文字淡灰 */
+  --vp-button-brand-bg: #ff7ec763;           /* 深灰背景 */
 
-  --vp-button-brand-hover-border: #F6CEEC;
-  --vp-button-brand-hover-text: #fff;
-  --vp-button-brand-hover-bg: #D939CD;
+  --vp-button-brand-hover-border: #ff7ec7; /* hover 青蓝边框 */
+  --vp-button-brand-hover-text: #000000;
+  --vp-button-brand-hover-bg: #ff7ec7c6;     /* hover 深青蓝 */
 
-  --vp-button-brand-active-border: #F6CEEC;
-} */
+  --vp-button-brand-active-border: #ff7ec7; 
+  --vp-button-brand-active-text: #000000;
+  --vp-button-brand-active-bg: #ff7ec7;    /* 按下效果更深青蓝 */
+
+}
+
+
+
+.VPDoc h1 {
+  background: -webkit-linear-gradient(60deg, var(--vp-c-brand-1) 5%, #bd34fe 40%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.vp-doc a {
+  text-decoration: none;
+}
+
+/* VPFeatures 页卡悬浮效果 */
+.VPFeatures .items .item {
+  transition: transform 0.3s;
+}
+
+.VPFeatures .items .item:hover {
+  transform: translateY(-5px);
+}

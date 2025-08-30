@@ -4,7 +4,15 @@ import { devDependencies } from '../../package.json'
 // https://vitepress.vuejs.org/config/app-configs
 export default defineConfig({
   base: '/',
-  dark: true,
+  appearance: 'dark',
+  //markdown配置
+  markdown: {
+    lineNumbers: true, //false关闭
+    image: {
+      // 开启图片懒加载
+      lazyLoading: true
+    },
+  },
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
@@ -14,7 +22,7 @@ export default defineConfig({
   description: '拼合收集各种工具网站',
   themeConfig: {
     //编辑本页
-    editLink: { 
+    editLink: {
       pattern: 'https://github.com/OFXIV/tool/edit/main/docs/:path', // 改成自己的仓库
       text: '在GitHub编辑本页'
     },
@@ -49,7 +57,7 @@ export default defineConfig({
     ],
     nav: [
       { text: '工具', link: '/tools' },
-      { text: `拼好具 ${devDependencies.vitepress.replace('^', '')}`, link: '/', noIcon: true },
+      { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: '/', noIcon: true },
     ],
     sidebar: {
       '/tools/': [
@@ -57,7 +65,8 @@ export default defineConfig({
           text: '生成器',
           items: [
             { text: 'UUID随机生成器', link: '/tools/uuid' },
-            { text: '随机密码生成器', link: '/tools/randomkey' }
+            { text: '随机密码生成器', link: '/tools/randomkey' },
+            { text: '二维码生成器', link: '/tools/qrcode' }
           ]
         }
       ]

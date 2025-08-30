@@ -131,24 +131,28 @@ generatePassword()
   max-width: 100%;
 }
 
+/* Markdown 风格代码块 */
 .md-code-block {
   display: inline-block;
-  background-color: #f6f8fa;
+  background-color: var(--vp-c-brand-1); /* 浅色模式背景 */
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--vp-c-brand-3); /* 边框 */
   white-space: pre-wrap;
   word-break: break-all;
   font-size: 0.95rem;
-  color: #111;
+  color: var(--vp-button-brand-text); /* 文字色 */
+  transition: background-color 0.3s, color 0.3s;
 }
 
+/* 暗色模式代码块 */
 .dark .md-code-block {
-  background-color: #2d2d2d;
-  border: 1px solid #444;
-  color: #eee;
+  background-color: var(--vp-c-brand-1);
+  border: 1px solid var(--vp-c-brand-3);
+  color: var(--vp-button-brand-text);
 }
 
+/* 按钮和输入组 */
 .buttons {
   display: flex;
   gap: 0.5rem;
@@ -157,74 +161,75 @@ generatePassword()
 }
 
 .buttons input {
-  background-color: #f8fafc;
-  border: 0.5px solid rgb(63, 65, 69);
+  border: 0.5px solid var(--vp-button-brand-border);
   border-radius: 0.5rem;
   box-sizing: border-box;
-  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   font-size: 0.775rem;
   font-weight: 600;
   line-height: 1rem;
   padding: 0.75rem 1.5rem;
   text-align: center;
-  text-decoration: none #D1D5DB solid;
-  text-decoration-thickness: auto;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   cursor: text;
   user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
   min-width: 110px;
-  color: #111;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .buttons button {
-  background-color: #f6f8fa;
-  border: 1px solid rgb(209, 213, 219);
+  background-color: var(--vp-button-brand-bg);
+  border: 1px solid var(--vp-button-brand-border);
   border-radius: 0.5rem;
   box-sizing: border-box;
-  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1rem;
   padding: 0.75rem 1.5rem;
   text-align: center;
-  text-decoration: none #D1D5DB solid;
-  text-decoration-thickness: auto;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   cursor: pointer;
   user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
   min-width: 120px;
-  color: #111;
+  color: var(--vp-button-brand-text);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
 
-.dark .buttons button,
-.dark .buttons input {
-  background-color: #3a3a3a;
-  border: 1px solid #555;
-  color: #f5f5f5;
+.buttons button:active {
+  background-color: var(--vp-button-brand-active-bg);
+  color: var(--vp-button-brand-active-text);
+  transform: translateY(2px);
 }
 
-.buttons button:hover {
-  background-color: #eaeff1;
+
+.dark .buttons button:hover,
+.dark .buttons input:hover {
+  background-color: var(--vp-button-brand-hover-bg);
+  color: var(--vp-button-brand-hover-text);
 }
 
-.dark .buttons button:hover {
-  background-color: #4a4a4a;
+.dark .buttons button:active {
+  transform: translateY(2px);
 }
 
+/* 按钮聚焦 */
+.buttons button:focus,
+.buttons input:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.buttons button:focus-visible,
+.buttons input:focus-visible {
+  box-shadow: 0 0 0 3px ;
+}
+
+/* 选项组 */
 .options {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   font-size: 0.875rem;
-  color: #333;
-}
-
-.dark .options {
-  color: #ddd;
 }
 
 .options label {
@@ -259,7 +264,5 @@ generatePassword()
   text-align: right;
 }
 
-.dark .bar {
-  background-color: #444;
-}
+
 </style>

@@ -73,72 +73,89 @@ generateUUID()
 /* Markdown 风格代码块，自适应内容大小 */
 .md-code-block {
   display: inline-block;
-  background-color: #f6f8fa; /* 默认亮色 */
+  background-color: var(--vp-c-brand-1); /* brand-3 浅色背景 */
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--vp-c-brand-3); /* brand-2 边框 */
   white-space: pre-wrap;
   word-break: break-all;
   font-size: 0.95rem;
-  color: #111; /* 亮色模式下文字 */
+  color: var(--vp-button-brand-text); /* brand-1 文字色 */
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* 暗色模式下覆盖 */
+/* 暗色模式 */
 .dark .md-code-block {
-  background-color: #2d2d2d; /* 深灰 */
-  border: 1px solid #444;
-  color: #eee; /* 亮文字 */
+  background-color: var(--vp-c-brand-1); /* 深色背景 */
+  border: 1px solid var(--vp-c-brand-3);
+  color: var(--vp-button-brand-text);
 }
 
-/* 下方按钮 */
+/* 按钮组 */
 .buttons {
   display: flex;
   gap: 0.5rem;
 }
 
 .buttons button {
-  background-color: #f6f8fa;
-  border: 1px solid rgb(209, 213, 219);
+  background-color: var(--vp-button-brand-bg);
+  border: 1px solid var(--vp-button-brand-border);
   border-radius: 0.5rem;
   box-sizing: border-box;
-  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1rem;
   padding: 0.75rem 1.5rem;
   text-align: center;
-  text-decoration: none #D1D5DB solid;
-  text-decoration-thickness: auto;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  text-decoration: none var(--vp-button-brand-text) solid;
+  box-shadow: 0 1px 2px 0 var(--vp-button-brand-border);
   cursor: pointer;
   user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
   min-width: 120px;
-  color: #111;
+  color: var(--vp-button-brand-text);
+  transition: 
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.1s ease,
+    box-shadow 0.2s ease;
 }
 
-/* 暗色模式下按钮覆盖 */
-.dark .buttons button {
-  background-color: #3a3a3a;
-  border: 1px solid #555;
-  color: #f5f5f5;
-}
-
+/* 悬停 */
 .buttons button:hover {
-  background-color: #eaeff1;
+  background-color: var(--vp-button-brand-hover-bg);
+  color: var(--vp-button-brand-hover-text);
+}
+
+/* 点击按下状态 */
+.buttons button:active {
+  background-color: var(--vp-button-brand-active-bg);
+  color: var(--vp-button-brand-active-text);
+  transform: translateY(2px);
+}
+
+/* 暗色模式按钮，降低刺眼度 */
+.dark .buttons button {
+  background-color: var(--vp-button-brand-bg);
+  border: 0.5px solid var(--vp-button-brand-border);
+  color: var(--vp-button-brand-text);
 }
 
 .dark .buttons button:hover {
-  background-color: #4a4a4a;
+  background-color: var(--vp-button-brand-hover-bg);
+  color: var(--vp-button-brand-hover-text);
 }
 
+.dark .buttons button:active {
+  background-color: var(--vp-button-brand-active-bg);
+  color: var(--vp-button-brand-active-text);
+  transform: translateY(2px);
+}
+
+/* 按钮聚焦 */
 .buttons button:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
-.buttons button:focus-visible {
-  box-shadow: none;
-}
 </style>

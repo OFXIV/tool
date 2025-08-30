@@ -8,14 +8,14 @@ footer: false
 layout: home
 hero:
   name: 拼好具
-  text: "找下有没有你想要的"
-  tagline: 如果没有找到请联系我
+  text: "拼一拼 更好用"
+  tagline: 一个足以
   image:
     src: /logo.png
     alt: "拼好具 Logo"
   actions:
     - theme: brand
-      text: 寻找
+      text: 拼我
       link: /tools
     - theme: alt
       text: GitHub
