@@ -56,17 +56,17 @@ export default defineConfig({
       }
     ],
     nav: [
-      { text: '工具', link: '/tools' },
-      { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: '/', noIcon: true },
+      { text: '工具', link: '/uuid' },
+      { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: 'https://vitepress.dev/zh/', noIcon: true },
     ],
     sidebar: {
-      '/tools/': [
+      '/': [
         {
           text: '生成器',
           items: [
-            { text: 'UUID随机生成器', link: '/tools/uuid' },
-            { text: '随机密码生成器', link: '/tools/randomkey' },
-            { text: '二维码生成器', link: '/tools/qrcode' }
+            { text: 'UUID随机生成器', link: '/uuid' },
+            { text: '随机密码生成器', link: '/randomkey' },
+            { text: '二维码生成器', link: '/qrcode' }
           ]
         }
       ]

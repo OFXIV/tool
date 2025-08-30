@@ -16,7 +16,7 @@ hero:
   actions:
     - theme: brand
       text: 拼我
-      link: /tools
+      link: /uuid
     - theme: alt
       text: GitHub
       link: https://github.com/OFXIV/tool
