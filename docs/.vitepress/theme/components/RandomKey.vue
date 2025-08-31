@@ -7,15 +7,17 @@ const lengthInput = ref(22)
 const copyStatus = ref('复制')
 let copyTimeout = null
 
-// 复选框控制
-const includeNumbers = ref(true)
-const includeLetters = ref(true)
-const includeSymbols = ref(true)
+
 
 // 字符集
 const numberChars = '0123456789'
 const letterChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-const symbolChars = '!@#$%^&*()-_=+[]{}|;:,.<>?/~'
+const symbolChars = '!@#$%^&*()_+-=[]{}|;:,.<>?'
+
+// 选项控制
+const includeNumbers = ref(true)
+const includeLetters = ref(true)
+const includeSymbols = ref(true)
 
 // 密码强度
 const strength = ref({ level: '弱', color: 'red', width: '33%' })
@@ -26,6 +28,7 @@ function generatePassword() {
   if (includeNumbers.value) charset += numberChars
   if (includeLetters.value) charset += letterChars
   if (includeSymbols.value) charset += symbolChars
+  
   if (!charset) {
     password.value = ''
     displayPassword.value = '⚠️ 请至少选择一种字符类型'
@@ -33,11 +36,37 @@ function generatePassword() {
     return
   }
 
-  const chars = Array.from({ length: lengthInput.value }, () => charset[Math.floor(Math.random() * charset.length)])
-  const newPass = chars.join('')
+  // 使用crypto API生成密码
+  const newPass = generateSecureRandomString(charset, lengthInput.value)
   password.value = newPass
   animatePassword(newPass)
   updateStrength(newPass)
+}
+
+// 使用crypto API生成安全随机字符串
+function generateSecureRandomString(charset, length) {
+  // 创建一个Uint32Array数组来存储随机值
+  const randomValues = new Uint32Array(length);
+  
+  // 使用crypto API填充随机值
+  if (typeof crypto !== 'undefined' && typeof crypto.getRandomValues === 'function') {
+    crypto.getRandomValues(randomValues);
+  } else {
+    // 如果crypto API不可用，回退到Math.random()
+    for (let i = 0; i < length; i++) {
+      randomValues[i] = Math.floor(Math.random() * 0xFFFFFFFF);
+    }
+  }
+  
+  // 将随机值映射到字符集
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    // 使用模运算确保随机值在字符集范围内
+    const randomIndex = randomValues[i] % charset.length;
+    result += charset[randomIndex];
+  }
+  
+  return result;
 }
 
 // 动画显示
@@ -54,9 +83,28 @@ function animatePassword(newPass) {
 }
 
 function randomChar() {
-  const all = numberChars + letterChars + symbolChars
-  return all[Math.floor(Math.random() * all.length)]
-}
+    // 构建所有可能的字符集
+    let all = ''
+    if (includeNumbers.value) all += numberChars
+    if (includeLetters.value) all += letterChars
+    if (includeSymbols.value) all += symbolChars
+    
+    // 如果没有选择任何字符类型，返回默认字符
+    if (!all) return '?'
+    
+    // 使用crypto API生成随机索引
+    let randomIndex;
+    if (typeof crypto !== 'undefined' && typeof crypto.getRandomValues === 'function') {
+      const randomValue = new Uint32Array(1);
+      crypto.getRandomValues(randomValue);
+      randomIndex = randomValue[0] % all.length;
+    } else {
+      // 如果crypto API不可用，回退到Math.random()
+      randomIndex = Math.floor(Math.random() * all.length);
+    }
+    
+    return all[randomIndex];
+  }
 
 // 复制
 async function copyPassword() {
@@ -107,11 +155,11 @@ generatePassword()
     </div>
     <!-- 密码区域 -->
     <pre class="md-code-block"><code>{{ displayPassword }}</code></pre>
-    <!-- 复选框 -->
+    <!-- 选项 -->
     <div class="options">
       <label><input type="checkbox" v-model="includeNumbers" /> 数字</label>
       <label><input type="checkbox" v-model="includeLetters" /> 字母</label>
-      <label><input type="checkbox" v-model="includeSymbols" /> 特殊符号</label>
+      <label><input type="checkbox" v-model="includeSymbols" /> 常用符号</label>
     </div>
     <!-- 输入 + 按钮 -->
     <div class="buttons">

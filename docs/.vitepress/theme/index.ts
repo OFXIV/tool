@@ -3,6 +3,8 @@ import { watch } from 'vue' // h函数
 import UUIDGenerator from './components/UUIDGenerator.vue'
 import RandomKey from './components/RandomKey.vue'
 import ArticleMetadata from "./components/ArticleMetadata.vue"
+import CurrencyConverter from "./components/CurrencyConverter.vue"
+import QRcode from "./components/QRcode.vue"
 import './style/index.css'
 
 
@@ -15,6 +17,8 @@ export default {
     app.component('UUIDGenerator', UUIDGenerator)
     app.component('RandomKey', RandomKey)
     app.component('ArticleMetadata', ArticleMetadata)
+    app.component('CurrencyConverter', CurrencyConverter)
+    app.component('QRcode', QRcode)
     // 彩虹背景动画样式
     if (typeof window !== 'undefined') {
       watch(

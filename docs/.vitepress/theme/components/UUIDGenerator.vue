@@ -9,11 +9,47 @@ const copyStatus = ref('复制')
 let copyTimeout = null
 
 function generateUUID() {
-  const newUuid = crypto.randomUUID()
+  let newUuid;
+  
+  // 首选使用crypto.randomUUID()，如果可用
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    newUuid = crypto.randomUUID();
+  } else {
+    // 备用方案：使用crypto.getRandomValues()手动构建UUID
+    newUuid = generateUUIDWithCryptoAPI();
+  }
+  
   uuid.value = newUuid
   history.unshift(newUuid)
   if (history.length > 10) history.pop()
   animateUUID(newUuid)
+}
+
+// 使用crypto API手动生成UUID v4的备用函数
+function generateUUIDWithCryptoAPI() {
+  // 创建一个16字节的数组（128位）
+  const bytes = new Uint8Array(16);
+  
+  // 使用crypto API填充随机值
+  if (typeof crypto !== 'undefined' && typeof crypto.getRandomValues === 'function') {
+    crypto.getRandomValues(bytes);
+  } else {
+    // 如果crypto API不可用，回退到Math.random()
+    for (let i = 0; i < 16; i++) {
+      bytes[i] = Math.floor(Math.random() * 256);
+    }
+  }
+  
+  // 设置UUID版本（4）和变体（10xx）
+  bytes[6] = (bytes[6] & 0x0f) | 0x40; // 版本4
+  bytes[8] = (bytes[8] & 0x3f) | 0x80; // 变体10
+  
+  // 转换为十六进制字符串并格式化为UUID
+  const hex = Array.from(bytes)
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
+    
+  return `${hex.substr(0, 8)}-${hex.substr(8, 4)}-${hex.substr(12, 4)}-${hex.substr(16, 4)}-${hex.substr(20, 12)}`;
 }
 
 // UUID 动态滚动效果
@@ -82,13 +118,6 @@ generateUUID()
   font-size: 0.95rem;
   color: var(--vp-button-brand-text); /* brand-1 文字色 */
   transition: background-color 0.3s, color 0.3s;
-}
-
-/* 暗色模式 */
-.dark .md-code-block {
-  background-color: var(--vp-c-brand-1); /* 深色背景 */
-  border: 1px solid var(--vp-c-brand-3);
-  color: var(--vp-button-brand-text);
 }
 
 /* 按钮组 */

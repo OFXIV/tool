@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { devDependencies } from '../../package.json'
+import { devDependencies, version } from '../../package.json'
 
 // https://vitepress.vuejs.org/config/app-configs
 export default defineConfig({
@@ -24,7 +24,7 @@ export default defineConfig({
     //编辑本页
     editLink: {
       pattern: 'https://github.com/OFXIV/tool/edit/main/docs/:path', // 改成自己的仓库
-      text: '在GitHub编辑本页'
+      text: '编辑此页面'
     },
     //自定义上下页名
     docFooter: {
@@ -57,7 +57,8 @@ export default defineConfig({
     ],
     nav: [
       { text: '工具', link: '/uuid' },
-      { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: 'https://vitepress.dev/zh/', noIcon: true },
+      { text: '更新日志', link: '/CHANGELOG' },
+      { text: `拼好具 v${version}`, link: '/', noIcon: true },
     ],
     sidebar: {
       '/': [

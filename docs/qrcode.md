@@ -1,84 +1,69 @@
 ---
 title: 随机二维码生成器
 ---
-<script setup>
-import { ref } from 'vue'
-import QRCode from 'qrcode'
-
-const text = ref('https://example.com')
-const qrDataUrl = ref('')
-
-// 随机生成一个颜色
-function getRandomColor() {
-  const randomColor = Math.floor(Math.random()*16777215).toString(16)
-  return `#${randomColor.padStart(6, '0')}`
-}
-
-// 随机生成二维码样式
-function getRandomQRCodeOptions() {
-  return {
-    width: Math.floor(Math.random() * 100) + 150, // 随机宽度，最小150px
-    margin: Math.floor(Math.random() * 4), // 随机边距，最大3
-    color: {
-      dark: getRandomColor(),  // 随机前景色
-      light: getRandomColor()  // 随机背景色
-    }
-  }
-}
-
-// 生成二维码
-async function generateQRCode() {
-  if (!text.value) return
-  try {
-    const options = getRandomQRCodeOptions() // 获取随机样式
-    qrDataUrl.value = await QRCode.toDataURL(text.value, options)
-  } catch (err) {
-    console.error(err)
-  }
-}
-
-// 初始生成
-generateQRCode()
-</script>
 
 # 随机二维码生成器
 <ArticleMetadata />
-> 生成随机样式的二维码 点击图片可下载 `png`格式<br>
-> <input v-model="text" type="text" placeholder="输入内容生成二维码" @input="generateQRCode" />
+<QRcode />
 
-<div class="qr-preview">
-  <a v-if="qrDataUrl" :href="qrDataUrl" download="qrcode.png">
-    <img :src="qrDataUrl" alt="二维码" />
-  </a>
-</div>
+## 功能概述
 
-<style scoped>
-input[type="text"] {
-  border: 1px solid var(--vp-c-brand-3);
-  color: var(--vp-button-brand-text);
-  background-color: var(--vp-c-brand-1);
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 0.95rem;
-  width: 100%;
-  box-sizing: border-box;
-}
+随机二维码生成器可以根据用户输入的内容，生成具有随机颜色和样式的二维码图片。生成的二维码可以下载为PNG格式，适用于各种场景，如网址分享、联系方式存储等。
 
-.qr-preview {
-    border-radius: 10px;
-    padding: 18px 20px 20px 15px;
-    display: inline-flex; 
-    background-color: var(--vp-c-gray-soft);
-    border: 7px outset var(--vp-c-brand-1);
-}
+## 使用指南
 
-.qr-preview img {
-  width: 200px;
-  height: 200px;
-  cursor: pointer; /* 鼠标悬停时显示点击效果 */
-}
+1. 在输入框中输入要生成二维码的内容（如网址、文本等）
+2. 系统会自动生成随机样式的二维码
+3. 点击二维码图片可以下载PNG格式的二维码
 
-.qr-preview a {
-  display: block;
-}
-</style>
+## 技术实现
+
+### 使用的库
+
+- [QRCode](https://www.npmjs.com/package/qrcode) - 二维码生成库
+
+### 实现细节
+
+- 每次生成二维码时，随机生成前景色和背景色
+- 随机设置二维码的宽度和边距
+- 使用Vue 3的响应式系统管理输入和输出
+- 支持实时预览，输入内容变化时自动重新生成二维码
+
+### 扩展功能建议
+
+- 支持自定义二维码颜色和样式
+- 添加logo到二维码中心
+- 支持调整二维码容错级别
+- 添加二维码扫描功能
+- 支持批量生成多个二维码
+- 添加二维码历史记录
+
+## 使用场景
+
+- 分享个人网站或社交媒体链接
+- 生成电子名片
+- 创建活动门票
+- 生成支付收款码
+- 分享WiFi连接信息
+- 创建产品溯源码
+
+## 常见问题
+
+### Q: 生成的二维码可以被扫描吗？
+
+A: 是的，生成的二维码符合标准二维码规范，可以被任何二维码扫描器识别和扫描。
+
+### Q: 如何调整二维码的大小？
+
+A: 二维码的大小是随机生成的，在150px到250px之间。如需固定大小，可以修改代码中的随机范围。
+
+### Q: 可以生成彩色二维码吗？
+
+A: 是的，每次生成二维码时都会随机生成前景色和背景色，确保每次生成的二维码样式都不同。
+
+## 浏览器兼容性
+
+- Chrome 60+
+- Firefox 55+
+- Safari 11+
+- Edge 79+
