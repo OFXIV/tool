@@ -158,7 +158,7 @@ onMounted(() => loadCurrencies())
       <div class="amount-input">
         <label>金额</label>
         <div class="input-group">
-          <input v-model="amount" type="number" placeholder="输入金额" @input="calculateConversion" />
+          <input v-model="amount" type="number" placeholder="输入金额" />
         </div>
       </div>
       
@@ -484,39 +484,49 @@ input[type="number"]:focus {
 
 .result-card {
   margin-top: 1.5rem;
-  background: var(--vp-c-bg-soft);
   border-radius: 1rem;
   padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.208);
   border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg);
 }
 
 .result-main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--vp-c-divider);
 }
 
 .result-amount {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
+  color: var(--vp-c-brand-1);
 }
 
 .equals-sign {
   color: var(--vp-c-text-2);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  margin: 0 1rem;
 }
 
 .result-details {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .exchange-rate {
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   color: var(--vp-c-text-2);
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--vp-c-divider-light);
+}
+
+.exchange-rate:last-child {
+  border-bottom: none;
 }
 
 </style>
