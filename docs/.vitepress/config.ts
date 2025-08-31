@@ -68,6 +68,12 @@ export default defineConfig({
             { text: '随机密码生成器', link: '/randomkey' },
             { text: '二维码生成器', link: '/qrcode' }
           ]
+        },
+        {
+          text: '换算器',
+          items:[
+            {text:'汇率换算',link:'/currencyconverter'}
+          ]
         }
       ]
     }
