@@ -209,7 +209,6 @@ generatePassword()
 }
 
 .buttons input {
-  border: 0.5px solid var(--vp-button-brand-border);
   border-radius: 0.5rem;
   box-sizing: border-box;
   font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
@@ -221,8 +220,8 @@ generatePassword()
   cursor: text;
   user-select: none;
   min-width: 110px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  transition: background-color 0.2s, color 0.2s;
+  box-shadow: 0 0 0 0.5px var(--vp-c-brand-3);
+  transition: all 0.2s;
 }
 
 .buttons button {
@@ -249,28 +248,21 @@ generatePassword()
   transform: translateY(2px);
 }
 
-
-.dark .buttons button:hover,
-.dark .buttons input:hover {
+ .buttons button:hover{
   background-color: var(--vp-button-brand-hover-bg);
   color: var(--vp-button-brand-hover-text);
 }
 
-.dark .buttons button:active {
+ .buttons button:active {
   transform: translateY(2px);
 }
 
 /* 按钮聚焦 */
 .buttons button:focus,
 .buttons input:focus {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
+  box-shadow: 0 0 0 1.5px var(--vp-c-brand-1);
 }
 
-.buttons button:focus-visible,
-.buttons input:focus-visible {
-  box-shadow: 0 0 0 3px ;
-}
 
 /* 选项组 */
 .options {

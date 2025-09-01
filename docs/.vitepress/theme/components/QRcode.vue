@@ -58,24 +58,17 @@ async function generateQRCode() {
   border-radius: 10px;
   padding: 18px 20px 20px 15px;
   position: relative;
-  background-color: var(--vp-c-gray-soft);
   border-left: 6px solid var(--vp-c-brand-1);
 }
 input[type="text"] {
-  border: 1px solid var(--vp-c-brand-3);
+  box-shadow: 0 0.5px 2px 0 var(--vp-c-brand-1);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-size: 0.95rem;
   width: 100%;
   box-sizing: border-box;
-  transition: all 0.1s ease-in-out;
-}
-
-input:hover {
-  border: 1.5px solid var(--vp-c-brand-2);
-  background-color: aliceblue;
-}
-
+  transition: all 0.2s ease-in-out;
+}s
 /* 添加过渡动画 */
 .fade-enter-active,
 .fade-leave-active {
@@ -88,14 +81,8 @@ input:hover {
   transform: scale(0.9);
 }
 
-.dark input:hover {
-  background-color: #e1cad8;
-  color: black;
-}
-
 input:focus {
-  border: 1.6px solid var(--vp-c-brand-1);
-  outline: none;
+  box-shadow: 0 3px 5px 0 var(--vp-c-brand-1);
 }
 
 .qr-preview {
