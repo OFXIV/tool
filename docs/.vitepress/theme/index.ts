@@ -5,8 +5,9 @@ import RandomKey from './components/RandomKey.vue'
 import ArticleMetadata from "./components/ArticleMetadata.vue"
 import CurrencyConverter from "./components/CurrencyConverter.vue"
 import QRcode from "./components/QRcode.vue"
-import './style/index.css'
 import JsonFormatter from './components/JsonFormatter.vue'
+import Base64Converter from './components/Base64Converter.vue'
+import './style/index.css'
 // 彩虹背景动画样式
 let homePageStyle: HTMLStyleElement | undefined
 export default {
@@ -19,6 +20,7 @@ export default {
     app.component('CurrencyConverter', CurrencyConverter)
     app.component('QRcode', QRcode)
     app.component('JsonFormatter', JsonFormatter)
+    app.component('Base64Converter', Base64Converter)
     // 彩虹背景动画样式
     if (typeof window !== 'undefined') {
       watch(

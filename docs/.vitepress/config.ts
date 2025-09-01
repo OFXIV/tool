@@ -81,6 +81,12 @@ export default defineConfig({
           items:[
             {text:'JSON格式化',link:'/jsonformatter'}
           ]
+        },
+        {
+          text: '编码/解码器',
+          items:[
+            {text:'Base64',link:'/base64'}
+          ]
         }
       ]
     }
