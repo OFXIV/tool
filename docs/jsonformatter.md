@@ -2,7 +2,7 @@
 title: "JSON 格式化"
 ---
 # JSON 格式化
-<ArticleMeta />
+<ArticleMetadata />
 <JsonFormatter />
 
 ## 功能介绍
