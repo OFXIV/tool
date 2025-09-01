@@ -1,5 +1,8 @@
 import DefaultTheme from 'vitepress/theme'
-import { watch } from 'vue' // h函数
+import bsz from "./components/bsz.vue"
+import { inBrowser } from 'vitepress'
+import busuanzi from 'busuanzi.pure.js'
+import { watch } from 'vue' 
 import UUIDGenerator from './components/UUIDGenerator.vue'
 import RandomKey from './components/RandomKey.vue'
 import ArticleMetadata from "./components/ArticleMetadata.vue"
@@ -30,6 +33,11 @@ export default {
         () => updateHomePageStyle(location.pathname === '/'),
         { immediate: true },
       )
+    }
+    if (inBrowser) {
+      router.onAfterRouteChanged = () => {
+        busuanzi.fetch()
+      }
     }
   },
 }
