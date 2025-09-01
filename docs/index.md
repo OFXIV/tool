@@ -15,7 +15,7 @@ hero:
     alt: "拼好具 Logo"
   actions:
     - theme: brand
-      text: 拼我
+      text: 开始
       link: /uuid
     - theme: alt
       text: GitHub

@@ -75,6 +75,12 @@ export default defineConfig({
           items:[
             {text:'汇率换算',link:'/currencyconverter'}
           ]
+        },
+        {
+          text: '格式化工具',
+          items:[
+            {text:'JSON格式化',link:'/jsonformatter'}
+          ]
         }
       ]
     }
