@@ -7,11 +7,13 @@ import CurrencyConverter from "./components/CurrencyConverter.vue"
 import QRcode from "./components/QRcode.vue"
 import JsonFormatter from './components/JsonFormatter.vue'
 import Base64Converter from './components/Base64Converter.vue'
+import MyLayout from './components/MyLayout.vue'
 import './style/index.css'
 // 彩虹背景动画样式
 let homePageStyle: HTMLStyleElement | undefined
 export default {
   extends: DefaultTheme,
+  Layout: MyLayout,
   enhanceApp({ app, router }) {
     // 注册全局组件
     app.component('UUIDGenerator', UUIDGenerator)

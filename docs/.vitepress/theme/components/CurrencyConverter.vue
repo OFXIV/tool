@@ -443,7 +443,7 @@ input[type="number"]:focus {
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  background: var(--vp-c-brand-3);
+  background: var(--vp-c-brand-1);
   color: var(--vp-button-brand-text);
   border-radius: 50%;
   cursor: pointer;
@@ -453,7 +453,7 @@ input[type="number"]:focus {
 }
 
 .swap-button:hover {
-  background: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-2);
   transform: rotate(180deg);
 }
 
@@ -464,7 +464,7 @@ input[type="number"]:focus {
 .convert-button {
   width: 100%;
   padding: 0.875rem;
-  background: var(--vp-c-brand-3);
+  background: var(--vp-c-brand-1);
   color: var(--vp-button-brand-text);
   border: none;
   border-radius: 0.5rem;
@@ -475,7 +475,7 @@ input[type="number"]:focus {
 }
 
 .convert-button:hover {
-  background: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-2);
 }
 
 .convert-button:active {

@@ -58,10 +58,10 @@ async function generateQRCode() {
   border-radius: 10px;
   padding: 18px 20px 20px 15px;
   position: relative;
-  border-left: 6px solid var(--vp-c-brand-1);
+  border-left: 6px solid var(--vp-c-brand-2);
 }
 input[type="text"] {
-  box-shadow: 0 0.5px 2px 0 var(--vp-c-brand-1);
+  box-shadow: 0 0.5px 2px 0 var(--vp-c-brand-2);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-size: 0.95rem;

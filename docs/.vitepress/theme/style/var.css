@@ -8,9 +8,9 @@
 }
 
 .dark {
-  --vp-c-brand-1: #ff7ec7;
-  --vp-c-brand-2: #ff7ec7c6;
-  --vp-c-brand-3: #ff7ec763;
+  --vp-c-brand-1: #a3507f;
+  --vp-c-brand-2: #d468a5;
+  --vp-c-brand-3: #ff7ec7;
 }
 
 /* -------------------------------
@@ -50,7 +50,7 @@
 
 
 .VPDoc h1 {
-  background: -webkit-linear-gradient(60deg, var(--vp-c-brand-1) 5%, #bd34fe 40%);
+  background: -webkit-linear-gradient(60deg, var(--vp-c-brand-3) 5%, #bd34fe 40%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

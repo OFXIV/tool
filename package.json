@@ -9,6 +9,7 @@
     "docs:serve": "vitepress serve docs"
   },
   "devDependencies": {
+    "@types/dom-view-transitions": "^1.0.6",
     "vitepress": "^1.6.4",
     "vue": "^3.2.44"
   },
@@ -20,6 +21,7 @@
     }
   },
   "dependencies": {
+    "busuanzi.pure.js": "^1.0.3",
     "qrcode": "^1.5.4"
   }
 }

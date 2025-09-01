@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { devDependencies, version } from '../../package.json'
+import {  version } from '../../package.json'
 
 // https://vitepress.vuejs.org/config/app-configs
 export default defineConfig({
@@ -21,6 +21,8 @@ export default defineConfig({
   title: '拼好具',
   description: '拼合收集各种工具网站',
   themeConfig: {
+    returnToTopLabel:'返回顶部', //返回顶部按钮
+    sidebarMenuLabel:'目录', //侧边栏目录
     //编辑本页
     editLink: {
       pattern: 'https://github.com/OFXIV/tool/edit/main/docs/:path', // 改成自己的仓库
