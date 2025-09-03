@@ -14,7 +14,8 @@ export default defineConfig({
     },
   },
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }]
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/gh/ofxiv/utils@main/dist/all-utils.min.js' }],
   ],
   lastUpdated: true,
   cleanUrls: true,
@@ -59,6 +60,7 @@ export default defineConfig({
     ],
     nav: [
       { text: '工具', link: '/uuid' },
+      {text: '文件转换', link: '/fileconverter'},
       { text: '更新日志', link: '/CHANGELOG' },
       { text: `拼好具 v${version}`, link: '/', noIcon: true },
     ],
@@ -76,12 +78,6 @@ export default defineConfig({
           text: '换算器',
           items:[
             {text:'汇率换算',link:'/currencyconverter'}
-          ]
-        },
-        {
-          text: '格式化工具',
-          items:[
-            {text:'JSON格式化',link:'/jsonformatter'}
           ]
         },
         {
