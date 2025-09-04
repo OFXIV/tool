@@ -19,7 +19,7 @@ hero:
       link: /uuid
     - theme: alt
       text: GitHub
-      link: https://github.com/OFXIV/tool
+      link: https://github.com/OFXIV/tools
 features:
   - icon: 📝
     title: 博客
